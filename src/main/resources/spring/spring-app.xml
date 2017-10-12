@@ -7,5 +7,5 @@
     <context:component-scan base-package="ua.mega.service"/>
 
     <!--Database-->
-    <import resource="spring-db.xml"/>
+    <import resource="spring-db-test.xml"/>
 </beans>
