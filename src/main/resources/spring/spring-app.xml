@@ -6,4 +6,12 @@
     <bean id="personDao" class="ua.mega.dao.mock.PersonDaoMockImpl"/>
     <bean id="bugDao" class="ua.mega.dao.mock.BugDaoMockImpl"/>
 
+    <bean id="personService" class="ua.mega.service.PersonServiceImpl">
+        <property name="personDao" ref="personDao"/>
+    </bean>
+    <bean id="bugService" class="ua.mega.service.BugServiceImpl">
+        <property name="bugDao" ref="bugDao"/>
+    </bean>
+
+
 </beans>
