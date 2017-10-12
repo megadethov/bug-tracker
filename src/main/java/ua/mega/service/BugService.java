@@ -7,9 +7,11 @@ import java.util.List;
 public interface BugService {
     Bug createNewBug(Bug bug);
 
-    Bug updateBug(int id);
+    Bug updateBug(Bug bug);
 
     boolean deleteBug(int id);
+
+    Bug getBugById(int id);
 
     List<Bug> getAllBugs();
 

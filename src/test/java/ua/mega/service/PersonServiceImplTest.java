@@ -34,8 +34,13 @@ public class PersonServiceImplTest {
 
     @Test
     public void updatePerson() throws Exception {
-        Person updatePerson = personService.updatePerson(this.person.getId());
+        Person updatePerson = personService.updatePerson(person);
         assertEquals(this.person, updatePerson);
+    }
+
+    @Test
+    public void getPersonById() throws Exception {
+        fail();
     }
 
     @Test

@@ -2,6 +2,12 @@ package ua.mega.model;
 
 import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "Bug.getAll", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter"),
+        @NamedQuery(name = "Bug.getAllByAssignee", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where assignee.id = :id"),
+        @NamedQuery(name = "Bug.getAllByReporter", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where reporter.id = :id")
+})
+
 @Entity
 public class Bug {
     @Id
@@ -19,28 +25,29 @@ public class Bug {
     @Column(name = "bug_status")
     private BugStatus bugStatus;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Person assignee;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Person reporter;
 
     public Bug() {
     }
 
-    public Bug(Integer id, String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person reporter) {
-        this.id = id;
+    public Bug(String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person assignee, Person reporter) {
         this.name = name;
         this.resolution = resolution;
         this.priority = priority;
         this.bugStatus = bugStatus;
+        this.assignee = assignee;
         this.reporter = reporter;
     }
 
     public Bug(Integer id, String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person assignee, Person reporter) {
-        this(id, name, resolution, priority, bugStatus, reporter);
-        this.assignee = assignee;
+        this(name, resolution, priority, bugStatus, assignee, reporter);
+        this.id = id;
     }
+
 
     public Integer getId() {
         return id;

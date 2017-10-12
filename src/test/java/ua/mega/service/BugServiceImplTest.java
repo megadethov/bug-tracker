@@ -35,7 +35,7 @@ public class BugServiceImplTest {
 
     @Test
     public void updateBug() throws Exception {
-        Bug updateBug = bugService.updateBug(this.bug.getId());
+        Bug updateBug = bugService.updateBug(bug);
         assertEquals(bug, updateBug);
     }
 
@@ -43,6 +43,11 @@ public class BugServiceImplTest {
     public void deleteBug() throws Exception {
         boolean deleteBug = bugService.deleteBug(bug.getId());
         assertEquals(true, deleteBug);
+    }
+
+    @Test
+    public void getBugById() throws Exception {
+        fail();
     }
 
     @Test

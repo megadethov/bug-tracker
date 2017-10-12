@@ -26,8 +26,13 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person updatePerson(int id) {
-        return personDao.update(id);
+    public Person updatePerson(Person person) {
+        return personDao.update(person);
+    }
+
+    @Override
+    public Person getPersonById(int id) {
+        return personDao.getById(id);
     }
 
     @Override

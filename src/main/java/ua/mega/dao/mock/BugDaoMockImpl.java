@@ -34,7 +34,7 @@ public class BugDaoMockImpl implements BugDao {
     }
 
     @Override
-    public Bug update(int id) {
+    public Bug update(Bug bug) {
         LOG.debug("Update bug - " + bug1);
         return bug1;
     }
@@ -43,6 +43,11 @@ public class BugDaoMockImpl implements BugDao {
     public boolean delete(int id) {
         LOG.debug("Delete Bug with id - " + id);
         return true;
+    }
+
+    @Override
+    public Bug getById(int id) {
+        return bug1;
     }
 
     @Override

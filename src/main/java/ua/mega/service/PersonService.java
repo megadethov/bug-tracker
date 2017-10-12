@@ -7,7 +7,9 @@ import java.util.List;
 public interface PersonService {
     Person createNewPerson(Person person);
 
-    Person updatePerson(int id);
+    Person updatePerson(Person person);
+
+    Person getPersonById(int id);
 
     List<Person> getAllPersons();
 }
