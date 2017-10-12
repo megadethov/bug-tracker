@@ -2,6 +2,7 @@ package ua.mega.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.dao.BugDao;
 import ua.mega.dao.mock.BugDaoMockImpl;
 import ua.mega.model.Bug;
@@ -9,10 +10,15 @@ import ua.mega.model.Bug;
 import java.util.List;
 
 @Service
+@Transactional
 public class BugServiceImpl implements BugService {
 
+    private final BugDao bugDao;
+
     @Autowired
-    private BugDao bugDao;
+    public BugServiceImpl(BugDao bugDao) {
+        this.bugDao = bugDao;
+    }
 
     @Override
     public Bug createNewBug(Bug bug) {
