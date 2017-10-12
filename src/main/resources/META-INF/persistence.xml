@@ -1,0 +1,25 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+   http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+    <persistence-unit name="derby" transaction-type="RESOURCE_LOCAL">
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:derby:/home/mega/soft/derby/bin/bugtracker/"/> <!--change for yourself-->
+
+            <!-- we do not need user name and password for the embedded DB
+           <property name="hibernate.connection.username" value=""/>
+           <property name="hibernate.connection.password" value=""/>
+           -->
+
+            <!--  tweak these to your own needs -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
