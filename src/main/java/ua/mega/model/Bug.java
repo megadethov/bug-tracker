@@ -1,13 +1,28 @@
 package ua.mega.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Bug {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private Resolution resolution;
+
+    @Enumerated(EnumType.STRING)
     private Priority priority;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "bug_status")
     private BugStatus bugStatus;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Person assignee;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Person reporter;
 
     public Bug() {

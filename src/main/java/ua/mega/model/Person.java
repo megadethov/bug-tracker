@@ -1,19 +1,30 @@
 package ua.mega.model;
 
+import javax.persistence.*;
 import java.util.Map;
 
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+
+    @Column(name = "last_name")
     private String lastName;
 
     public Person() {
     }
 
-    public Person(Integer id, String name, String lastName) {
-        this.id = id;
+    public Person(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
+    }
+
+    public Person(Integer id, String name, String lastName) {
+        this(name, lastName);
+        this.id = id;
     }
 
     public Integer getId() {
