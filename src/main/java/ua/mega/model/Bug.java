@@ -95,4 +95,32 @@ public class Bug {
                 ", reporter=" + reporter +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bug bug = (Bug) o;
+
+        if (id != null ? !id.equals(bug.id) : bug.id != null) return false;
+        if (name != null ? !name.equals(bug.name) : bug.name != null) return false;
+        if (resolution != bug.resolution) return false;
+        if (priority != bug.priority) return false;
+        if (bugStatus != bug.bugStatus) return false;
+        if (assignee != null ? !assignee.equals(bug.assignee) : bug.assignee != null) return false;
+        return reporter != null ? reporter.equals(bug.reporter) : bug.reporter == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (resolution != null ? resolution.hashCode() : 0);
+        result = 31 * result + (priority != null ? priority.hashCode() : 0);
+        result = 31 * result + (bugStatus != null ? bugStatus.hashCode() : 0);
+        result = 31 * result + (assignee != null ? assignee.hashCode() : 0);
+        result = 31 * result + (reporter != null ? reporter.hashCode() : 0);
+        return result;
+    }
 }
