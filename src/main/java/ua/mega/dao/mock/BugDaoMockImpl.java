@@ -1,4 +1,4 @@
-package ua.mega.dao.Mock;
+package ua.mega.dao.mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
