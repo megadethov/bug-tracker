@@ -2,12 +2,14 @@ package ua.mega.dao.mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import ua.mega.dao.BugDao;
 import ua.mega.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class BugDaoMockImpl implements BugDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(BugDaoMockImpl.class);

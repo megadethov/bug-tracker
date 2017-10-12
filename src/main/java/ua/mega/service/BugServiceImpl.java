@@ -1,22 +1,18 @@
 package ua.mega.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.mega.dao.BugDao;
 import ua.mega.dao.mock.BugDaoMockImpl;
 import ua.mega.model.Bug;
 
 import java.util.List;
 
+@Service
 public class BugServiceImpl implements BugService {
 
+    @Autowired
     private BugDao bugDao;
-
-    public BugDao getBugDao() {
-        return bugDao;
-    }
-
-    public void setBugDao(BugDao bugDao) {
-        this.bugDao = bugDao;
-    }
 
     @Override
     public Bug createNewBug(Bug bug) {

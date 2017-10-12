@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="personDao" class="ua.mega.dao.mock.PersonDaoMockImpl"/>
-    <bean id="bugDao" class="ua.mega.dao.mock.BugDaoMockImpl"/>
-
-    <bean id="personService" class="ua.mega.service.PersonServiceImpl">
-        <property name="personDao" ref="personDao"/>
-    </bean>
-    <bean id="bugService" class="ua.mega.service.BugServiceImpl">
-        <property name="bugDao" ref="bugDao"/>
-    </bean>
-
+    <context:component-scan base-package="ua.mega.dao"/>
+    <context:component-scan base-package="ua.mega.service"/>
 
 </beans>

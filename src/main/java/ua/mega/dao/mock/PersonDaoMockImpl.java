@@ -2,20 +2,22 @@ package ua.mega.dao.mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import ua.mega.dao.PersonDao;
 import ua.mega.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class PersonDaoMockImpl implements PersonDao {
     private static final Logger LOG = LoggerFactory.getLogger(PersonDaoMockImpl.class);
 
-    Person person1 = new Person(1001, "Shawn", "Ray");
-    Person person2 = new Person(1002, "Flex", "Wheeler");
-    Person person3 = new Person(1003, "Lee", "Priest");
+    private Person person1 = new Person(1001, "Shawn", "Ray");
+    private Person person2 = new Person(1002, "Flex", "Wheeler");
+    private Person person3 = new Person(1003, "Lee", "Priest");
 
-    List<Person> persons = new ArrayList<>();
+    private List<Person> persons = new ArrayList<>();
 
     @Override
     public Person create(Person person) {

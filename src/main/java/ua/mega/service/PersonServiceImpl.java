@@ -1,22 +1,18 @@
 package ua.mega.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.mega.dao.PersonDao;
 import ua.mega.dao.mock.PersonDaoMockImpl;
 import ua.mega.model.Person;
 
 import java.util.List;
 
+@Service
 public class PersonServiceImpl implements PersonService {
 
+    @Autowired
     private PersonDao personDao;
-
-    public PersonDao getPersonDao() {
-        return personDao;
-    }
-
-    public void setPersonDao(PersonDao personDao) {
-        this.personDao = personDao;
-    }
 
     @Override
     public Person createNewPerson(Person person) {
