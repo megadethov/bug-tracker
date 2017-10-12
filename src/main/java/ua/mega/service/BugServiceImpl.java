@@ -26,13 +26,18 @@ public class BugServiceImpl implements BugService {
     }
 
     @Override
-    public Bug updateBug(int id) {
-        return bugDao.update(id);
+    public Bug updateBug(Bug bug) {
+        return bugDao.update(bug);
     }
 
     @Override
     public boolean deleteBug(int id) {
         return bugDao.delete(id);
+    }
+
+    @Override
+    public Bug getBugById(int id) {
+        return bugDao.getById(id);
     }
 
     @Override

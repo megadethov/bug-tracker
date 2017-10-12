@@ -7,7 +7,9 @@ import java.util.List;
 public interface PersonDao {
     Person create(Person person);
 
-    Person update(int id);
+    Person update(Person person);
+
+    Person getById(int id);
 
     List<Person> getAll();
 }

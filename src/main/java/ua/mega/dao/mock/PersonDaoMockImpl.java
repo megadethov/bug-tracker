@@ -26,8 +26,14 @@ public class PersonDaoMockImpl implements PersonDao {
     }
 
     @Override
-    public Person update(int id) {
+    public Person update(Person person) {
         LOG.debug("Update person - " + person1);
+        return person1;
+    }
+
+    @Override
+    public Person getById(int id) {
+        LOG.debug("Get person by id");
         return person1;
     }
 

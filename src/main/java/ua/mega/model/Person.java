@@ -1,7 +1,10 @@
 package ua.mega.model;
 
 import javax.persistence.*;
-import java.util.Map;
+
+@NamedQueries({
+        @NamedQuery(name = "Person.getAll", query = "select person from Person person")
+})
 
 @Entity
 public class Person {

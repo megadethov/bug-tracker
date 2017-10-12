@@ -8,9 +8,11 @@ import java.util.List;
 public interface BugDao {
     Bug create(Bug bug);
 
-    Bug update(int id);
+    Bug update(Bug bug);
 
     boolean delete(int id);
+
+    Bug getById(int id);
 
     List<Bug> getAll();
 
