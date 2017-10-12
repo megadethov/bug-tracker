@@ -13,14 +13,18 @@ public class Bug {
     public Bug() {
     }
 
-    public Bug(Integer id, String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person assignee, Person reporter) {
+    public Bug(Integer id, String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person reporter) {
         this.id = id;
         this.name = name;
         this.resolution = resolution;
         this.priority = priority;
         this.bugStatus = bugStatus;
-        this.assignee = assignee;
         this.reporter = reporter;
+    }
+
+    public Bug(Integer id, String name, Resolution resolution, Priority priority, BugStatus bugStatus, Person assignee, Person reporter) {
+        this(id, name, resolution, priority, bugStatus, reporter);
+        this.assignee = assignee;
     }
 
     public Integer getId() {
@@ -77,5 +81,18 @@ public class Bug {
 
     public void setReporter(Person reporter) {
         this.reporter = reporter;
+    }
+
+    @Override
+    public String toString() {
+        return "Bug{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", resolution=" + resolution +
+                ", priority=" + priority +
+                ", bugStatus=" + bugStatus +
+                ", assignee=" + assignee +
+                ", reporter=" + reporter +
+                '}';
     }
 }
