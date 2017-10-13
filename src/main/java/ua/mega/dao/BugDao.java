@@ -16,7 +16,7 @@ public interface BugDao {
 
     List<Bug> getAll();
 
-    List<Bug> getAllByAssignee(int id);
+    List<Bug> getAllByAssignee(int assigneeId);
 
-    List<Bug> getAllByReporter(int id);
+    List<Bug> getAllByReporter(int reporterId);
 }

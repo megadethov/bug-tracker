@@ -15,7 +15,7 @@ public interface BugService {
 
     List<Bug> getAllBugs();
 
-    List<Bug> getAllBugsByAssignee(int id);
+    List<Bug> getAllBugsByAssignee(int assigneeId);
 
-    List<Bug> getAllBugsByReporter(int id);
+    List<Bug> getAllBugsByReporter(int reporterId);
 }

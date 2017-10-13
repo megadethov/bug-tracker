@@ -6,7 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.model.*;
+import ua.mega.util.DbPopulator;
 
 import java.util.List;
 
@@ -14,58 +16,64 @@ import static org.junit.Assert.*;
 
 @ContextConfiguration("classpath:spring/spring-app.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
 public class BugServiceImplTest {
 
     @Autowired
     private BugService bugService;
 
-    private Bug bug;
+    @Autowired
+    private DbPopulator dbPopulator;
 
     @Before
     public void setUp() throws Exception {
-        bug = new Bug(1001, "Authenticator code not working", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
-                new Person(1001, "Shawn", "Ray"), new Person(1002, "Tom", "Araya"));
+        dbPopulator.execute();
     }
 
     @Test
     public void createNewBug() throws Exception {
+       Bug bug = new Bug("Nothing works", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
+                new Person("Milos", "Sarcev"), new Person( "Alice", "Cooper"));
         Bug newBug = bugService.createNewBug(bug);
         assertEquals(bug, newBug);
     }
 
     @Test
     public void updateBug() throws Exception {
+        Bug bug = bugService.getBugById(40001);
+        bug.setName("CHANGED BUG NAME");
         Bug updateBug = bugService.updateBug(bug);
         assertEquals(bug, updateBug);
     }
 
     @Test
     public void deleteBug() throws Exception {
-        boolean deleteBug = bugService.deleteBug(bug.getId());
+        boolean deleteBug = bugService.deleteBug(40001);
         assertEquals(true, deleteBug);
     }
 
     @Test
     public void getBugById() throws Exception {
-        fail();
+        Bug bug = bugService.getBugById(40001);
+        assertNotNull(bug);
     }
 
     @Test
     public void getAllBugs() throws Exception {
         List<Bug> allBugs = bugService.getAllBugs();
-        assertEquals(true, allBugs.size() > 0);
+        assertEquals(false, allBugs.isEmpty());
     }
 
     @Test
     public void getAllBugsByAssignee() throws Exception {
-        List<Bug> allBugsByAssignee = bugService.getAllBugsByAssignee(bug.getId());
-        assertEquals(true, allBugsByAssignee.size() > 0);
+        List<Bug> allBugsByAssignee = bugService.getAllBugsByAssignee(10001);
+        assertEquals(2, allBugsByAssignee.size());
     }
 
     @Test
     public void getAllBugsByReporter() throws Exception {
-        List<Bug> allBugsByReporter = bugService.getAllBugsByReporter(bug.getId());
-        assertEquals(true, allBugsByReporter.size() > 0);
+        List<Bug> allBugsByReporter = bugService.getAllBugsByReporter(20001);
+        assertEquals(2, allBugsByReporter.size());
     }
 
 }
