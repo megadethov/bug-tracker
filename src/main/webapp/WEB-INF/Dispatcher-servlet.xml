@@ -11,7 +11,13 @@
     <!--scan for all Controllers in the applications-->
     <context:component-scan base-package="ua.mega.**web"/>
 
-
     <mvc:annotation-driven />
+
+    <!--  all resources inside folder src/main/webapp/resources are mapped so they can be refered to inside JSP files -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp"/>
 
 </beans>
