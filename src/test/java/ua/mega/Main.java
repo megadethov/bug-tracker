@@ -29,15 +29,15 @@ public class Main {
             System.out.println(next);
         }*/
 
-        Bug bug = new Bug("Authenticator code not working", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
+/*        Bug bug = new Bug("Authenticator code not working", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
                 new Person("Shawn", "Ray"), new Person("Tom", "Araya"));
 
-        bugService.createNewBug(bug);
+        bugService.createNewBug(bug);*/
 
-/*        List<Bug> allBugs = bugService.getAllBugs();
+        List<Bug> allBugs = bugService.getAllBugsByAssignee(10001);
         for (Bug next : allBugs) {
             System.out.println(next);
-        }*/
+        }
 
         tx.commit();
         em.close();

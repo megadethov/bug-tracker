@@ -51,6 +51,12 @@ public class PersonServiceImplTest {
         assertNotNull(person);
     }
 
+    @Test(expected = AssertionError.class)
+    public void getPersonByNotExistId() throws Exception {
+        Person person = personService.getPersonById(666);
+        assertNotNull(person);
+    }
+
     @Test
     public void getAllPersons() throws Exception {
         List<Person> allPersons = personService.getAllPersons();

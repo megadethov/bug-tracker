@@ -58,6 +58,12 @@ public class BugServiceImplTest {
         assertNotNull(bug);
     }
 
+    @Test(expected = AssertionError.class)
+    public void getBugByNotExistId() throws Exception {
+        Bug bug = bugService.getBugById(666);
+        assertNotNull(bug);
+    }
+
     @Test
     public void getAllBugs() throws Exception {
         List<Bug> allBugs = bugService.getAllBugs();
