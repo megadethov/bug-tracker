@@ -22,7 +22,7 @@ public class Bug {
     private Priority priority;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "bug_status")
+    @Column(name = "BUG_STATUS")
     private BugStatus bugStatus;
 
     @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)

@@ -7,6 +7,11 @@
     <!--<context:component-scan base-package="ua.mega.dao.mock"/>-->
     <context:component-scan base-package="ua.mega.dao.jpa"/>
 
+    <!--Populate Derby DB-->
+    <bean class="ua.mega.util.DbPopulator">
+        <constructor-arg name="scriptLocation" value="classpath:db/populateDB-derby.sql"/>
+    </bean>
+
     <!--dataSource Test-->
     <context:property-placeholder location="classpath:db/derby.properties" system-properties-mode="OVERRIDE"/>
     <bean id="dataSource"
