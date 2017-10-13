@@ -6,7 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.model.Person;
+import ua.mega.util.DbPopulator;
 
 import java.util.List;
 
@@ -14,39 +16,45 @@ import static org.junit.Assert.*;
 
 @ContextConfiguration("classpath:spring/spring-app.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
 public class PersonServiceImplTest {
 
     @Autowired
     private PersonService personService;
 
-    private Person person;
+    @Autowired
+    private DbPopulator dbPopulator;
 
     @Before
     public void setUp() throws Exception {
-        person = new Person(1001, "Shawn", "Ray");
+        dbPopulator.execute();
     }
 
     @Test
     public void createNewPerson() throws Exception {
+        Person person = new Person("Milos", "Sarcev");
         Person newPerson = personService.createNewPerson(person);
         assertEquals(person, newPerson);
     }
 
     @Test
     public void updatePerson() throws Exception {
+        Person person = personService.getPersonById(10001);
+        person.setName("CHANGE_NAME");
         Person updatePerson = personService.updatePerson(person);
-        assertEquals(this.person, updatePerson);
+        assertEquals(person, updatePerson);
     }
 
     @Test
     public void getPersonById() throws Exception {
-        fail();
+        Person person = personService.getPersonById(10001);
+        assertNotNull(person);
     }
 
     @Test
     public void getAllPersons() throws Exception {
         List<Person> allPersons = personService.getAllPersons();
-        assertEquals(true, allPersons.size() > 0);
+        assertEquals(false, allPersons.isEmpty());
     }
 
 }
