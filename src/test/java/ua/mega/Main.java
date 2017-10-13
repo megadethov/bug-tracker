@@ -18,7 +18,7 @@ public class Main {
         PersonService personService = container.getBean(PersonService.class);
         BugService bugService = container.getBean(BugService.class);
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("derby");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("postgres");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();

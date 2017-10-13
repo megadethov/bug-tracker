@@ -6,6 +6,10 @@
 
     <context:component-scan base-package="ua.mega.service"/>
 
-    <!--Test Database-->
-    <import resource="spring-db-test.xml"/>
+    <!--Test Database - switch to the JUnit tests-->
+    <!--<import resource="spring-db-test.xml"/>-->
+
+    <!--Main Database - switch to the Production-->
+    <import resource="spring-db-main.xml"/>
+
 </beans>

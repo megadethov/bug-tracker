@@ -13,7 +13,8 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-            <property name="hibernate.connection.url" value="jdbc:derby:/home/mega/soft/derby/bin/bugtracker/"/> <!--change for yourself-->
+            <property name="hibernate.connection.url"
+                      value="jdbc:derby:/home/mega/soft/derby/bin/bugtracker/"/> <!--change for yourself-->
 
             <!-- we do not need user name and password for the embedded DB
            <property name="hibernate.connection.username" value=/>
@@ -25,6 +26,28 @@
             <property name="hibernate.format_sql" value="true"/>
             <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+        </properties>
+
+    </persistence-unit>
+
+    <!--Persistence-unit for production DB - Postgres-->
+    <persistence-unit name="postgres" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ua.mega.model.Person</class>
+        <class>ua.mega.model.Bug</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/bugtracker"/> <!--change for yourself-->
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="postgres"/>
+
+            <!--  tweak these to your own needs -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
         </properties>
 
     </persistence-unit>

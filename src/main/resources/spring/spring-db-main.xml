@@ -4,34 +4,27 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--<context:component-scan base-package="ua.mega.dao.mock"/>-->
     <context:component-scan base-package="ua.mega.dao.jpa"/>
 
-    <!--Populate Derby DB-->
-    <bean class="ua.mega.util.DbPopulator">
-        <constructor-arg name="scriptLocation" value="classpath:db/populateDB-derby.sql"/>
-    </bean>
-
-    <!--dataSource Test-->
-    <context:property-placeholder location="classpath:db/derby.properties" system-properties-mode="OVERRIDE"/>
-    <bean id="dataSourceTest"
+    <!--dataSource Main-->
+    <bean id="dataSourceMain"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${database.driverClassName}"/>
-        <property name="url" value="${database.url}"/>
-        <property name="username" value="${database.username}"/>
-        <property name="password" value="${database.password}"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/bugtracker"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
     </bean>
 
     <!--Pass dataSource to the EntityManagerFactory-->
-    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="emfTest">
-        <property name="persistenceUnitName" value="derby"/>
-        <property name="dataSource" ref="dataSourceTest"/>
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="emfMain">
+        <property name="persistenceUnitName" value="postgres"/>
+        <property name="dataSource" ref="dataSourceMain"/>
         <property name="packagesToScan" value="ua.mega.model"/>
     </bean>
 
     <!--Then create the transactionManager using EntityManagerFactory-->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emfTest" />
+        <property name="entityManagerFactory" ref="emfMain" />
         <property name="jpaDialect" ref="jpaDialect"/>
     </bean>
 
