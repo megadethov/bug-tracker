@@ -18,6 +18,7 @@
             <th>ID</th>
             <th>NAME</th>
             <th>LAST NAME</th>
+            <th>CHANGE PERSON</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                 <td>${next.id}</td>
                 <td>${next.name}</td>
                 <td>${next.lastName}</td>
+                <td>
+                    <a href="<c:url value="/person/update?id=${next.id}"/>">Update</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
