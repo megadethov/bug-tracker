@@ -29,5 +29,10 @@ public class PersonsManagementController {
         model.addAttribute("person", new Person());
         return "add-new-person";
     }
+    @RequestMapping(value = "/addNew", method = RequestMethod.POST)
+    public String processAddForm(Person newPerson) {
+        personService.createNewPerson(newPerson);
+        return "person-added";
+    }
 
 }

@@ -13,14 +13,7 @@
 
 <jsp:include page="header.jsp"/>
 
-<div id="container">
-    <form:form commandName="person">
-        <label>Enter Name</label><form:input path="name"/>
-        <label>Enter Last name</label><form:input path="lastName"/>
-        <input type="submit" value="Add New Person"/>
-        <input type="reset"/>
-    </form:form>
-</div>
+<h2>Person added</h2>
 
 <jsp:include page="footer.jsp"/>
 
