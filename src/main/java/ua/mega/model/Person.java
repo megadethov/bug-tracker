@@ -1,6 +1,10 @@
 package ua.mega.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @NamedQueries({
         @NamedQuery(name = "Person.getAll", query = "select person from Person person")
@@ -12,9 +16,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
     private String name;
 
     @Column(name = "last_name")
+    @NotEmpty
     private String lastName;
 
     public Person() {

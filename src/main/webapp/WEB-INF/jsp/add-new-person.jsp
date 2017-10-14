@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>Add New Person</title>
+    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
 </head>
 <body>
 
@@ -15,8 +16,10 @@
 
 <div id="container">
     <form:form commandName="person">
-        <label>Enter Name</label><form:input path="name"/><form:errors path="name" cssClass="error"/>
-        <label>Enter Last name</label><form:input path="lastName"/><form:errors path="lastName" cssClass="error"/>
+        <label><fmt:message key="person.name"/></label><br/>
+        <form:input path="name"/><form:errors path="name" cssClass="error"/><br/>
+        <label><fmt:message key="person.lastName"/></label><br/>
+        <form:input path="lastName"/><form:errors path="lastName" cssClass="error"/><br/>
         <input type="submit" value="Add New Person"/>
         <input type="reset"/>
     </form:form>

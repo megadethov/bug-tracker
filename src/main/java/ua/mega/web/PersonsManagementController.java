@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ua.mega.model.Person;
 import ua.mega.service.PersonService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -31,13 +34,13 @@ public class PersonsManagementController {
         return "add-new-person";
     }
     @RequestMapping(value = "/addNew", method = RequestMethod.POST)
-    public String processAddForm(Person newPerson, Model model, Errors result) {
+    public ModelAndView processAddForm(@Valid Person newPerson, Errors result) {
+
         if (result.hasErrors()) {
-            model.addAttribute("person", newPerson);
-            return "add-new-person";
+            return new ModelAndView("add-new-person", "person", newPerson);
         }
         personService.createNewPerson(newPerson);
-        return "person-added";
+        return new ModelAndView("person-added", "person", newPerson);
     }
 
 }
