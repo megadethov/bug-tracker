@@ -3,6 +3,7 @@ package ua.mega.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.mega.model.Person;
@@ -30,7 +31,11 @@ public class PersonsManagementController {
         return "add-new-person";
     }
     @RequestMapping(value = "/addNew", method = RequestMethod.POST)
-    public String processAddForm(Person newPerson) {
+    public String processAddForm(Person newPerson, Model model, Errors result) {
+        if (result.hasErrors()) {
+            model.addAttribute("person", newPerson);
+            return "add-new-person";
+        }
         personService.createNewPerson(newPerson);
         return "person-added";
     }

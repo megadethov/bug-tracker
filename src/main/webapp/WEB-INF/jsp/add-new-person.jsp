@@ -15,8 +15,8 @@
 
 <div id="container">
     <form:form commandName="person">
-        <label>Enter Name</label><form:input path="name"/>
-        <label>Enter Last name</label><form:input path="lastName"/>
+        <label>Enter Name</label><form:input path="name"/><form:errors path="name" cssClass="error"/>
+        <label>Enter Last name</label><form:input path="lastName"/><form:errors path="lastName" cssClass="error"/>
         <input type="submit" value="Add New Person"/>
         <input type="reset"/>
     </form:form>
