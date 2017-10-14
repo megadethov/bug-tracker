@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
@@ -10,7 +9,7 @@
 </head>
 <body>
 
-<%--<jsp:include page="/header.jsp"/>--%>
+<jsp:include page="header.jsp"/>
 
 <div id="container">
     <table>
@@ -18,7 +17,7 @@
         <tr>
             <th>ID</th>
             <th>NAME</th>
-            <th>LASTNAME</th>
+            <th>LAST NAME</th>
         </tr>
         </thead>
         <tbody>
@@ -33,7 +32,7 @@
     </table>
 </div>
 
-<%--<jsp:include page="/footer.jsp"/>--%>
+<jsp:include page="footer.jsp"/>
 
 </body>
 
