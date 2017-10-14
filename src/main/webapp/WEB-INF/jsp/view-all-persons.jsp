@@ -23,18 +23,27 @@
             <th>ID</th>
             <th>NAME</th>
             <th>LAST NAME</th>
+            <th>UPDATE</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${allPersons}" var="next">
             <tr>
                 <td>${next.id}</td>
-                <td class="edit" data-id="${next.id}" contenteditable="true">${next.name}</td>
-                <td class="edit" data-id="${next.id}" contenteditable="true">${next.lastName}</td>
+                <td class="edit" data-id="${next.id}" data-name="name" contenteditable="true">${next.name}</td>
+                <td class="edit" data-id="${next.id}" data-name="lastName" contenteditable="true">${next.lastName}</td>
+                <td>
+                    <div>
+                        <input id="update" type="button" value="SAVE CHANGE" style="color: #cd0a0a"/>
+                    </div>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+
+
 </div>
 
 <jsp:include page="footer.jsp"/>

@@ -7,6 +7,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import ua.mega.model.Person;
 import ua.mega.service.PersonService;
@@ -42,5 +44,24 @@ public class PersonsManagementController {
         personService.createNewPerson(newPerson);
         return new ModelAndView("person-added", "person", newPerson);
     }
+
+    // AJAX
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public @ResponseBody String updatePersonAjax(@RequestParam String new_val, @RequestParam int id, @RequestParam String field) {
+        Person person = personService.getPersonById(id);
+        switch (field) {
+            case "name":
+                person.setName(new_val);
+                break;
+            case "lastName":
+                person.setLastName(new_val);
+                break;
+        }
+        personService.updatePerson(person);
+
+        return "UPDATED";
+    }
+
+
 
 }
