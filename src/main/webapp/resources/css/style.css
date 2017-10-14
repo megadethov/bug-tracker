@@ -1,3 +1,50 @@
 .error{
     color: #cc0000;
 }
+
+.zebra{
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+.zebra th{
+    background: #555;
+    color: #fff;
+    text-align: left;
+}
+.zebra .foot{
+    background: #d5d5d5;
+    color: #000;
+    text-align: left;
+}
+.zebra input{
+    width: 100%;
+    transition: all .5s;
+}
+.zebra input:focus{
+    box-shadow: 0 0 5px #000;
+}
+.zebra th,
+.zebra td{
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    vertical-align: middle;
+    padding: 12px 5px;
+}
+.zebra tr{
+    transition: all .5s;
+}
+.zebra tr:hover{
+    background: #f1f1f1;
+}
+
+.edit{
+    padding: 3px;
+    transition: all .5s;
+    border: 1px solid rgba(82, 168, 236, .5);
+}
+.edit:focus{
+    border: 1px solid rgba(82, 168, 236, 1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.9);
+    outline: 0 none;
+}

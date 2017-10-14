@@ -2,17 +2,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
     <title>All Persons</title>
+    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
+    <script src="<spring:url value="http://code.jquery.com/jquery-latest.js"/>" type="text/javascript"></script>
+    <script src="<spring:url value="/resources/js/script.js"/>" type="text/javascript"></script>
+
 </head>
 <body>
 
 <jsp:include page="header.jsp"/>
 
 <div id="container">
-    <table>
+    <table class="zebra">
         <thead>
         <tr>
             <th>ID</th>
@@ -24,8 +29,8 @@
         <c:forEach items="${allPersons}" var="next">
             <tr>
                 <td>${next.id}</td>
-                <td>${next.name}</td>
-                <td>${next.lastName}</td>
+                <td class="edit" data-id="${next.id}" contenteditable="true">${next.name}</td>
+                <td class="edit" data-id="${next.id}" contenteditable="true">${next.lastName}</td>
             </tr>
         </c:forEach>
         </tbody>
