@@ -1,7 +1,5 @@
 package ua.mega.web;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +14,6 @@ import java.util.List;
 @RequestMapping(value = "/person")
 public class PersonsManagementController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PersonsManagementController.class);
-
     @Autowired
     private PersonService personService;
 
@@ -26,6 +22,12 @@ public class PersonsManagementController {
         List<Person> allPersons = personService.getAllPersons();
         model.addAttribute("allPersons", allPersons);
         return "view-all-persons";
+    }
+
+    @RequestMapping(value = "/addNew", method = RequestMethod.GET)
+    public String showAddForm(Model model) {
+        model.addAttribute("person", new Person());
+        return "add-new-person";
     }
 
 }
