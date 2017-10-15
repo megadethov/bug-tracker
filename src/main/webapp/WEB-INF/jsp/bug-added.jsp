@@ -7,21 +7,13 @@
 
 <html>
 <head>
-    <title>Update Person</title>
-    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
+    <title>Add New Bug</title>
 </head>
 <body>
 
 <jsp:include page="header.jsp"/>
 
-<div id="container">
-    <form:form commandName="person">
-        <label><fmt:message key="person.name"/></label><br/>
-        <form:input path="name" value="${person.name}"/><form:errors path="name" cssClass="error"/><br/>
-
-        <input type="submit" value="Update Person"/>
-    </form:form>
-</div>
+<h2>Bug added</h2>
 
 <jsp:include page="footer.jsp"/>
 

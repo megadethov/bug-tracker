@@ -34,10 +34,14 @@ public class Main {
 
         bugService.createNewBug(bug);*/
 
-        List<Bug> allBugs = bugService.getAllBugsByAssignee(10001);
+/*        List<Bug> allBugs = bugService.getAllBugsByAssignee(10001);
         for (Bug next : allBugs) {
             System.out.println(next);
-        }
+        }*/
+
+        Bug bugById = bugService.getBugById(1);
+        System.out.println(bugById);
+
 
         tx.commit();
         em.close();

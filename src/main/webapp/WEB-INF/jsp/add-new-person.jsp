@@ -18,10 +18,7 @@
     <form:form commandName="person">
         <label><fmt:message key="person.name"/></label><br/>
         <form:input path="name"/><form:errors path="name" cssClass="error"/><br/>
-        <label><fmt:message key="person.lastName"/></label><br/>
-        <form:input path="lastName"/><form:errors path="lastName" cssClass="error"/><br/>
         <input type="submit" value="Add New Person"/>
-        <input type="reset"/>
     </form:form>
 </div>
 

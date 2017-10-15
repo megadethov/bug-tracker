@@ -42,8 +42,9 @@ public class BugDaoJpaImpl implements BugDao {
 
     @Override
     public Bug getById(int id) {
+        TypedQuery<Bug> q = em.createNamedQuery("Bug.getById", Bug.class).setParameter("id", id);
         LOG.debug("Get bug by id - " + id);
-        return em.find(Bug.class, id);
+        return q.getSingleResult();
     }
 
     @Override

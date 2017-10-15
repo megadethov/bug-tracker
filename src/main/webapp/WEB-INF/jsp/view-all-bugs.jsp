@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>All Persons</title>
+    <title>All Bugs</title>
 </head>
 <body>
 
@@ -17,16 +17,26 @@
         <tr>
             <th>ID</th>
             <th>NAME</th>
+            <th>RESOLUTION</th>
+            <th>PRIORITY</th>
+            <th>BUG STATUS</th>
+            <th>ASSIGNEE</th>
+            <th>REPORTER</th>
             <th>CHANGE</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${allPersons}" var="next">
+        <c:forEach items="${allBugs}" var="next">
             <tr>
                 <td>${next.id}</td>
                 <td>${next.name}</td>
+                <td>${next.resolution}</td>
+                <td>${next.priority}</td>
+                <td>${next.bugStatus}</td>
+                <td>${next.assignee.name}</td>
+                <td>${next.reporter.name}</td>
                 <td>
-                    <a href="<c:url value="/person/update?id=${next.id}"/>">Update</a>
+                    <a href="<c:url value="/bug/update?id=${next.id}"/>">Update</a>
                 </td>
             </tr>
         </c:forEach>

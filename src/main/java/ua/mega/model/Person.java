@@ -1,10 +1,8 @@
 package ua.mega.model;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 
 @NamedQueries({
         @NamedQuery(name = "Person.getAll", query = "select person from Person person")
@@ -19,21 +17,16 @@ public class Person {
     @NotEmpty
     private String name;
 
-    @Column(name = "last_name")
-    @NotEmpty
-    private String lastName;
-
     public Person() {
     }
 
-    public Person(String name, String lastName) {
+    public Person(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.lastName = lastName;
     }
 
-    public Person(Integer id, String name, String lastName) {
-        this(name, lastName);
-        this.id = id;
+    public Person(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -52,20 +45,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
@@ -77,15 +61,13 @@ public class Person {
         Person person = (Person) o;
 
         if (id != null ? !id.equals(person.id) : person.id != null) return false;
-        if (name != null ? !name.equals(person.name) : person.name != null) return false;
-        return lastName != null ? lastName.equals(person.lastName) : person.lastName == null;
+        return name != null ? name.equals(person.name) : person.name == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
     }
 }

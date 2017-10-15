@@ -15,13 +15,13 @@ public class BugDaoMockImpl implements BugDao {
     private static final Logger LOG = LoggerFactory.getLogger(BugDaoMockImpl.class);
 
     Bug bug1 = new Bug(1001, "Authenticator code not working", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
-            new Person(1001, "Shawn", "Ray"), new Person(1002, "Tom", "Araya"));
+            new Person(1001, "Shawn Ray"), new Person(1002, "Tom Araya"));
 
     Bug bug2 = new Bug(1002, "Unable to login", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
-            new Person(1001, "Shawn", "Ray"), new Person(1002, "Tom", "Araya"));
+            new Person(1001, "Shawn Ray"), new Person(1002, "Tom Araya"));
 
     Bug bug3 = new Bug(1003, "Captcha image broken", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
-            new Person(1001, "Shawn", "Ray"), new Person(1002, "Tom", "Araya"));
+            new Person(1001, "Shawn Ray"), new Person(1002, "Tom Araya"));
 
     List<Bug> allBugs = new ArrayList<>();
     List<Bug> allAssigneeBugs = new ArrayList<>();

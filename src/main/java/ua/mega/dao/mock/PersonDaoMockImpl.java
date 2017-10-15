@@ -13,9 +13,9 @@ import java.util.List;
 public class PersonDaoMockImpl implements PersonDao {
     private static final Logger LOG = LoggerFactory.getLogger(PersonDaoMockImpl.class);
 
-    private Person person1 = new Person(1001, "Shawn", "Ray");
-    private Person person2 = new Person(1002, "Flex", "Wheeler");
-    private Person person3 = new Person(1003, "Lee", "Priest");
+    private Person person1 = new Person(1001, "Shawn Ray");
+    private Person person2 = new Person(1002, "Flex Wheeler");
+    private Person person3 = new Person(1003, "Lee Priest");
 
     private List<Person> persons = new ArrayList<>();
 

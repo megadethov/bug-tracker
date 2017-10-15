@@ -32,7 +32,7 @@ public class PersonServiceImplTest {
 
     @Test
     public void createNewPerson() throws Exception {
-        Person person = new Person("Milos", "Sarcev");
+        Person person = new Person("Milos Sarcev");
         Person newPerson = personService.createNewPerson(person);
         assertEquals(person, newPerson);
     }

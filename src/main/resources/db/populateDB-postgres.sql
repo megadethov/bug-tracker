@@ -3,25 +3,25 @@ DELETE FROM PERSON;
 
 -- =====================================
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (10001, 'Flex', 'Wheeler');
+INSERT INTO PERSON (id, name)
+VALUES (10001, 'Flex Wheeler');
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (10002, 'Shawn', 'Ray');
+INSERT INTO PERSON (id, name)
+VALUES (10002, 'Shawn Ray');
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (10003, 'Lee', 'Priest');
+INSERT INTO PERSON (id, name)
+VALUES (10003, 'Lee Priest');
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (10004, 'Kevin', 'Levrone');
+INSERT INTO PERSON (id, name)
+VALUES (10004, 'Kevin Levrone');
 
 -- ======================================
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (20001, 'Tom', 'Araya');
+INSERT INTO PERSON (id, name)
+VALUES (20001, 'Tom Araya');
 
-INSERT INTO PERSON (id, name, last_name)
-VALUES (20002, 'Kerry', 'King');
+INSERT INTO PERSON (id, name)
+VALUES (20002, 'Kerry King');
 
 -- =====================================
 

@@ -33,7 +33,7 @@ public class BugServiceImplTest {
     @Test
     public void createNewBug() throws Exception {
        Bug bug = new Bug("Nothing works", Resolution.UNRESOLVED, Priority.HIGH, BugStatus.TO_DO,
-                new Person("Milos", "Sarcev"), new Person( "Alice", "Cooper"));
+                new Person("Milos Sarcev"), new Person( "Alice Cooper"));
         Bug newBug = bugService.createNewBug(bug);
         assertEquals(bug, newBug);
     }
