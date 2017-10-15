@@ -15,6 +15,7 @@ public class Person {
     private Integer id;
 
     @NotEmpty
+    @Column(unique = true)
     private String name;
 
     public Person() {

@@ -27,6 +27,9 @@ public class BugsManagementController {
     @Autowired
     private PersonService personService;
 
+    /**
+     * VIEW ALL BUGS
+     */
     @RequestMapping(value = "/viewAll", method = RequestMethod.GET)
     public String viewAllBugs(Model model) {
         List<Bug> allBugs = bugService.getAllBugs();
@@ -34,6 +37,9 @@ public class BugsManagementController {
         return "view-all-bugs";
     }
 
+    /**
+     * ADD NEW BUG
+     */
     @RequestMapping(value = "/addNew", method = RequestMethod.GET)
     public String showAddForm(Model model) {
         model.addAttribute("bug", new Bug());
@@ -49,6 +55,9 @@ public class BugsManagementController {
         return new ModelAndView("bug-added", "bug", newBug);
     }
 
+    /**
+     * FORM ATTRIBUTES
+     */
     @ModelAttribute("resolutionOptions")
     public List<String> getResolutions() {
         return new ArrayList<>(EnumUtils.getEnumMap(Resolution.class).keySet());
@@ -72,4 +81,29 @@ public class BugsManagementController {
         return personNameOptions;
     }
 
+    /**
+     * UPDATE
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String showUpdateForm(Model model, @RequestParam("id") int id) {
+        System.out.println("=== 1 ===");
+        Bug bugToUpdate = bugService.getBugById(id);
+        model.addAttribute("bug", new Bug());
+        model.addAttribute("bug", bugToUpdate);
+        System.out.println("=== 2 ===");
+        return "update-bug";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView processUpdateForm(@ModelAttribute("bug") @Valid Bug newBug, Errors result) {
+        System.out.println("=== 3 ===");
+        if (result.hasErrors()) {
+            System.out.println("=== 4 ===");
+            return new ModelAndView("update-bug", "bug", newBug);
+        }
+        System.out.println("=== 5 ===");
+        bugService.updateBug(newBug);
+        System.out.println("=== 6 ===");
+        return new ModelAndView("bug-updated", "bug", newBug);
+    }
 }

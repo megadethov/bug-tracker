@@ -39,8 +39,8 @@ public class Main {
             System.out.println(next);
         }*/
 
-        Bug bugById = bugService.getBugById(1);
-        System.out.println(bugById);
+/*        Bug bugById = bugService.getBugById(1);
+        System.out.println(bugById);*/
 
 
         tx.commit();

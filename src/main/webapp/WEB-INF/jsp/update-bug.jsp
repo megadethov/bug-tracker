@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>Add New Bug</title>
+    <title>Update Bug</title>
     <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
 </head>
 <body>
@@ -15,27 +15,32 @@
 <jsp:include page="header.jsp"/>
 
 <div id="container">
-    <h2>Add New Bug</h2>
-    <form:form commandName="bug" action="addNew">
+    <form:form commandName="bug" action="update">
+
+        <form:hidden path="id" value="${bug.id}"/><br/>
+
         <label><fmt:message key="bug.name"/></label><br/>
-        <form:input path="name"/><form:errors path="name" cssClass="error"/><br/>
+        <form:input path="name" value="${bug.name}"/><form:errors path="name" cssClass="error"/><br/>
 
         <label><fmt:message key="bug.resolution"/></label><br/>
-        <form:select path="resolution" items="${resolutionOptions}"/><form:errors path="resolution" cssClass="error"/><br/>
+        <form:select path="resolution" items="${resolutionOptions}" value="${bug.resolution}"/><br/>
 
         <label><fmt:message key="bug.priority"/></label><br/>
-        <form:select path="priority" items="${priorityOptions}"/><form:errors path="priority" cssClass="error"/><br/>
+        <form:select path="priority" items="${priorityOptions}" value="${bug.priority}"/><br/>
 
         <label><fmt:message key="bug.bugStatus"/></label><br/>
-        <form:select path="bugStatus" items="${bugStatusOptions}"/><form:errors path="bugStatus" cssClass="error"/><br/>
+        <form:select path="bugStatus" items="${bugStatusOptions}" value="${bug.bugStatus}"/><br/>
 
         <label><fmt:message key="bug.assignee.name"/></label><br/>
-        <form:select path="assignee.name" items="${personNameOptions}"/><form:errors path="assignee.name" cssClass="error"/><br/>
+        <form:select path="assignee.name" items="${personNameOptions}" value="${bug.assignee.name}"/><br/>
 
         <label><fmt:message key="bug.reporter.name"/></label><br/>
-        <form:select path="reporter.name" items="${personNameOptions}"/><form:errors path="reporter.name" cssClass="error"/><br/>
+        <form:select path="reporter.name" items="${personNameOptions}" value="${bug.resolution.name()}"/><br/>
 
-        <input type="submit" value="Add New Bug"/>
+        <form:hidden path="assignee.id" value="${bug.assignee.id}"/><br/>
+        <form:hidden path="reporter.id" value="${bug.reporter.id}"/><br/>
+
+        <input type="submit" value="Update Bug"/>
     </form:form>
 </div>
 
@@ -44,3 +49,6 @@
 </body>
 
 </html>
+
+
+
