@@ -30,10 +30,12 @@ public class Bug {
     @Column(name = "BUG_STATUS")
     private BugStatus bugStatus;
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "assignee_id")
     private Person assignee;
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reporter_id")
     private Person reporter;
 
     public Bug() {

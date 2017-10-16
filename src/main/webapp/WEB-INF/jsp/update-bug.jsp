@@ -32,13 +32,12 @@
         <form:select path="bugStatus" items="${bugStatusOptions}" value="${bug.bugStatus}"/><br/>
 
         <label><fmt:message key="bug.assignee.name"/></label><br/>
-        <form:select path="assignee.name" items="${personNameOptions}" value="${bug.assignee.name}"/><br/>
+        <form:select path="assignee.id" items="${personNameOptions}" itemLabel="name" itemValue="id"/><form:errors
+            path="assignee.name" cssClass="error"/><br/>
 
         <label><fmt:message key="bug.reporter.name"/></label><br/>
-        <form:select path="reporter.name" items="${personNameOptions}" value="${bug.resolution.name()}"/><br/>
-
-        <form:hidden path="assignee.id" value="${bug.assignee.id}"/><br/>
-        <form:hidden path="reporter.id" value="${bug.reporter.id}"/><br/>
+        <form:select path="reporter.id" items="${personNameOptions}" itemLabel="name" itemValue="id"/><form:errors
+            path="reporter.name" cssClass="error"/><br/>
 
         <input type="submit" value="Update Bug"/>
     </form:form>

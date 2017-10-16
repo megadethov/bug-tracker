@@ -45,12 +45,14 @@ public class BugsManagementController {
         model.addAttribute("bug", new Bug());
         return "add-new-bug";
     }
+
     @RequestMapping(value = "/addNew", method = RequestMethod.POST)
     public ModelAndView processAddForm(@ModelAttribute("bug") @Valid Bug newBug, Errors result) {
 
         if (result.hasErrors()) {
             return new ModelAndView("add-new-bug", "bug", newBug);
         }
+        System.out.println("!!!!!!!!!!!!!!!");
         bugService.createNewBug(newBug);
         return new ModelAndView("bug-added", "bug", newBug);
     }
@@ -62,23 +64,20 @@ public class BugsManagementController {
     public List<String> getResolutions() {
         return new ArrayList<>(EnumUtils.getEnumMap(Resolution.class).keySet());
     }
+
     @ModelAttribute("priorityOptions")
     public List<String> getPriorities() {
         return new ArrayList<>(EnumUtils.getEnumMap(Priority.class).keySet());
     }
+
     @ModelAttribute("bugStatusOptions")
     public List<String> getBugStatuses() {
         return new ArrayList<>(EnumUtils.getEnumMap(BugStatus.class).keySet());
     }
+
     @ModelAttribute("personNameOptions")
-    public List<String> getPersonNameOptions() {
-        List<Person> persons = personService.getAllPersons();
-        List<String> personNameOptions = new ArrayList<>();
-        personNameOptions.add("UNDEFINED");
-        for (Person next : persons) {
-            personNameOptions.add(next.getName());
-        }
-        return personNameOptions;
+    public List<Person> getPersonNameOptions() {
+        return personService.getAllPersons();
     }
 
     /**
