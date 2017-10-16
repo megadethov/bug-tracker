@@ -98,5 +98,16 @@ public class BugsManagementController {
         bugService.updateBug(newBug);
         return new ModelAndView("bug-updated", "bug", newBug);
     }
+
+    /**
+     * DELETE BUG
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteBug(Model model, @RequestParam("id") int id) {
+        bugService.deleteBug(id);
+        List<Bug> allBugs = bugService.getAllBugs();
+        model.addAttribute("allBugs", allBugs);
+        return "view-all-bugs";
+    }
 }
 // TODO: 16.10.17 Logging

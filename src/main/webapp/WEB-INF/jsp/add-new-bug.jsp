@@ -30,10 +30,18 @@
         <form:select path="bugStatus" items="${bugStatusOptions}"/><form:errors path="bugStatus" cssClass="error"/><br/>
 
         <label><fmt:message key="bug.assignee.name"/></label><br/>
-        <form:select path="assignee.id" items="${personNameOptions}" itemLabel="name" itemValue="id"/><form:errors path="assignee.name" cssClass="error"/><br/>
+        <form:select path="assignee.id">
+            <form:option value="-" label="--Please Select"/>
+            <form:options items="${personNameOptions}" itemValue="id" itemLabel="name"/>
+        </form:select>
+        <form:errors path="assignee.id" cssClass="error"/><br/>
 
         <label><fmt:message key="bug.reporter.name"/></label><br/>
-        <form:select path="reporter.id" items="${personNameOptions}" itemLabel="name" itemValue="id"/><form:errors path="reporter.name" cssClass="error"/><br/>
+        <form:select path="reporter.id">
+            <form:option value="-" label="--Please Select"/>
+            <form:options items="${personNameOptions}" itemValue="id" itemLabel="name" />
+        </form:select>
+        <form:errors path="reporter.id" cssClass="error"/><br/>
 
         <input type="submit" value="Add New Bug"/>
     </form:form>

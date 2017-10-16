@@ -24,6 +24,7 @@
             <th>ASSIGNEE</th>
             <th>REPORTER</th>
             <th>CHANGE</th>
+            <th>DELETE</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +39,9 @@
                 <td>${next.reporter.name}</td>
                 <td>
                     <a href="<c:url value="/bug/update?id=${next.id}"/>">EDIT</a>
+                </td>
+                <td>
+                    <a href="<c:url value="/bug/delete?id=${next.id}"/>">DELETE</a>
                 </td>
             </tr>
         </c:forEach>

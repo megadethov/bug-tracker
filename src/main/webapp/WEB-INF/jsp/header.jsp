@@ -4,9 +4,9 @@
 
 <h1>Bug Tracker</h1>
 
-<a href="<spring:url value="/main"/>">Home</a>
-<a href="<spring:url value="/person/viewAll"/>">View All Persons</a>
-<a href="<spring:url value="/person/addNew"/>">Add New Person</a>
-<a href="<spring:url value="/bug/viewAll"/>">View All Bugs</a>
-<a href="<spring:url value="/bug/addNew"/>">Add New Bug</a>
+<a href="<spring:url value="/main"/>">Home</a> &nbsp
+<a href="<spring:url value="/person/viewAll"/>">View All Persons</a> &nbsp
+<a href="<spring:url value="/person/addNew"/>">Add New Person</a> &nbsp
+<a href="<spring:url value="/bug/viewAll"/>">View All Bugs</a> &nbsp
+<a href="<spring:url value="/bug/addNew"/>">Add New Bug</a> &nbsp
 
