@@ -15,9 +15,15 @@
         <intercept-url pattern="/login" access="permitAll"/> <!--open access to all-->
         <intercept-url pattern="/person/addNew" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/> <!--block all url (/**)-->
-        <form-login login-page="/login" authentication-failure-url="/login?error"/> <!--custom form-->
+        <!--custom form-->
+        <form-login login-page="/login"
+                    authentication-failure-handler-ref="myFailureHandler"/>
         <logout logout-success-url="/main"/> <!-- /logout - (automatically logout) -->
     </http>
+
+    <beans:bean id="myFailureHandler" class="ua.mega.security.UsernameRememberingAuthenticationFailureHandler" autowire="byType">
+        <beans:property name="redirectTarget" value="/login"/>
+    </beans:bean>
 
     <!--authentication rules-->
     <authentication-manager>
