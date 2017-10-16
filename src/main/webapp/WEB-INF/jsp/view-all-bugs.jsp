@@ -12,6 +12,7 @@
 <jsp:include page="header.jsp"/>
 
 <div id="container">
+    <h2>All Bugs</h2>
     <table>
         <thead>
         <tr>
@@ -36,7 +37,7 @@
                 <td>${next.assignee.name}</td>
                 <td>${next.reporter.name}</td>
                 <td>
-                    <a href="<c:url value="/bug/update?id=${next.id}"/>">Update</a>
+                    <a href="<c:url value="/bug/update?id=${next.id}"/>">EDIT</a>
                 </td>
             </tr>
         </c:forEach>

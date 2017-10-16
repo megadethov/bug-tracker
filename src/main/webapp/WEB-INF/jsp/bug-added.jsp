@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>Add New Bug</title>
+    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
 </head>
 <body>
 

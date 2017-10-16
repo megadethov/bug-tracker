@@ -22,6 +22,9 @@ public class PersonsManagementController {
     @Autowired
     private PersonService personService;
 
+    /**
+     * VIEW ALL PERSONS
+     */
     @RequestMapping(value = "/viewAll", method = RequestMethod.GET)
     public String viewAllPersons(Model model) {
         List<Person> allPersons = personService.getAllPersons();
@@ -29,6 +32,9 @@ public class PersonsManagementController {
         return "view-all-persons";
     }
 
+    /**
+     * ADD NEW PERSON
+     */
     @RequestMapping(value = "/addNew", method = RequestMethod.GET)
     public String showAddForm(Model model) {
         model.addAttribute("person", new Person());
@@ -44,6 +50,9 @@ public class PersonsManagementController {
         return new ModelAndView("person-added", "person", newPerson);
     }
 
+    /**
+     * UPDATE PERSON
+     */
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public ModelAndView showUpdateForm(@RequestParam("id") int id) {
         Person personToUpdate = personService.getPersonById(id);
@@ -60,3 +69,5 @@ public class PersonsManagementController {
     }
 
 }
+
+// TODO: 16.10.17 Logging

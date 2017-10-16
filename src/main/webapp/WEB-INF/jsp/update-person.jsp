@@ -15,6 +15,7 @@
 <jsp:include page="header.jsp"/>
 
 <div id="container">
+    <h2>Edit Person</h2>
     <form:form commandName="person">
         <label><fmt:message key="person.name"/></label><br/>
         <form:input path="name" value="${person.name}"/><form:errors path="name" cssClass="error"/><br/>

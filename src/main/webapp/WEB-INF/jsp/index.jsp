@@ -7,6 +7,7 @@
 <html>
 <head>
     <title>Main Page</title>
+    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css"/>
 </head>
 <body>
 

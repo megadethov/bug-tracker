@@ -15,6 +15,7 @@
 <jsp:include page="header.jsp"/>
 
 <div id="container">
+    <h2>Edit Bug</h2>
     <form:form commandName="bug" action="update">
 
         <form:hidden path="id" value="${bug.id}"/><br/>

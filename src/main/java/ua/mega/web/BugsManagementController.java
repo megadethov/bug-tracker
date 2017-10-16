@@ -52,7 +52,6 @@ public class BugsManagementController {
         if (result.hasErrors()) {
             return new ModelAndView("add-new-bug", "bug", newBug);
         }
-        System.out.println("!!!!!!!!!!!!!!!");
         bugService.createNewBug(newBug);
         return new ModelAndView("bug-added", "bug", newBug);
     }
@@ -81,28 +80,23 @@ public class BugsManagementController {
     }
 
     /**
-     * UPDATE
+     * UPDATE BUG
      */
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String showUpdateForm(Model model, @RequestParam("id") int id) {
-        System.out.println("=== 1 ===");
         Bug bugToUpdate = bugService.getBugById(id);
         model.addAttribute("bug", new Bug());
         model.addAttribute("bug", bugToUpdate);
-        System.out.println("=== 2 ===");
         return "update-bug";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ModelAndView processUpdateForm(@ModelAttribute("bug") @Valid Bug newBug, Errors result) {
-        System.out.println("=== 3 ===");
         if (result.hasErrors()) {
-            System.out.println("=== 4 ===");
             return new ModelAndView("update-bug", "bug", newBug);
         }
-        System.out.println("=== 5 ===");
         bugService.updateBug(newBug);
-        System.out.println("=== 6 ===");
         return new ModelAndView("bug-updated", "bug", newBug);
     }
 }
+// TODO: 16.10.17 Logging
