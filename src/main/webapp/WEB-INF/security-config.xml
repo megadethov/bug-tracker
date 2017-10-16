@@ -28,10 +28,7 @@
     <!--authentication rules-->
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="admin" password="admin" authorities="ROLE_USER,ROLE_ADMIN"/>
-                <user name="user" password="user" authorities="ROLE_USER"/>
-            </user-service>
+            <jdbc-user-service data-source-ref="dataSourceMain"/>
         </authentication-provider>
     </authentication-manager>
 
