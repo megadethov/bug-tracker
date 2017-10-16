@@ -9,4 +9,5 @@
 <a href="<spring:url value="/person/addNew"/>">Add New Person</a> &nbsp
 <a href="<spring:url value="/bug/viewAll"/>">View All Bugs</a> &nbsp
 <a href="<spring:url value="/bug/addNew"/>">Add New Bug</a> &nbsp
+<a href='<spring:url value="/logout"/>'>Logout</a>
 
