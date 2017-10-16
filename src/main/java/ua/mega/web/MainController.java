@@ -16,4 +16,9 @@ public class MainController {
     public String mainPage() {
         return "index";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginForm() {
+        return "login";
+    }
 }

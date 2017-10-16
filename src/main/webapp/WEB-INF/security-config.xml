@@ -9,11 +9,13 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!--authorization rules-->
+    <http pattern="/resources/**" security="none"/> <!--not security-->
     <http>
         <csrf disabled="true"/> <!--needs to logout-->
+        <intercept-url pattern="/login" access="permitAll"/> <!--open access to all-->
         <intercept-url pattern="/person/addNew" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
-        <form-login/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/> <!--block all url (/**)-->
+        <form-login login-page="/login" authentication-failure-url="/login?error"/> <!--custom form-->
         <logout logout-success-url="/main"/> <!-- /logout - (automatically logout) -->
     </http>
 
