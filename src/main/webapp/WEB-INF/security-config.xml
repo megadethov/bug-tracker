@@ -12,6 +12,7 @@
     <http>
         <csrf disabled="true"/> <!--needs to logout-->
         <intercept-url pattern="/person/addNew" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <form-login/>
         <logout logout-success-url="/main"/> <!-- /logout - (automatically logout) -->
     </http>
