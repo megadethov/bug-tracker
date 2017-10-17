@@ -7,11 +7,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ua.mega.model.Person;
 import ua.mega.security.UserFormObject;
+import ua.mega.service.PersonService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -20,6 +24,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/createAccount")
 public class CreateAccountController {
+
+    @Autowired
+    PersonService personService;
 
     /**
      * this Spring class under the hood makes queries to tables - USERS and ROLES
@@ -31,8 +38,9 @@ public class CreateAccountController {
      * show form
      */
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView show() {
-        return new ModelAndView("create-account", "userFormObject", new UserFormObject());
+    public String show(Model model) {
+        model.addAttribute("userFormObject", new UserFormObject());
+        return "create-account";
     }
     /**
      * process form
@@ -55,7 +63,12 @@ public class CreateAccountController {
             newUser.setPassword(null);
             return new ModelAndView("create-account", "userFormObject", newUser);
         }
-        return new ModelAndView("redirect:/person/viewAll");
+        return new ModelAndView("redirect:/main");
+    }
+
+    @ModelAttribute("personNameOptions")
+    public List<Person> getPersonNameOptions() {
+        return personService.getAllPersons();
     }
 
 }

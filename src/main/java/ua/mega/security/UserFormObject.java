@@ -2,6 +2,8 @@ package ua.mega.security;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Min;
+
 public class UserFormObject {
     @NotEmpty
     private String username;
