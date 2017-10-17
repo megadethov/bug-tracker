@@ -48,6 +48,16 @@ public class BugsManagementController {
         model.addAttribute("allBugs", allBugs);
         return "view-all-assignee-bugs";
     }
+    /**
+     * VIEW ALL BUGS BY REPORTER NAME
+     */
+    @RequestMapping(value = "/viewAllByReporterName", method = RequestMethod.GET)
+    public String viewAllBugsByReporterName(Model model) {
+        String currentPersonName = SecurityContextHolder.getContext().getAuthentication().getName();
+        List<Bug> allBugs = bugService.getAllBugsByReporterName(currentPersonName);
+        model.addAttribute("allBugs", allBugs);
+        return "view-all-reporter-bugs";
+    }
 
     /**
      * ADD NEW BUG

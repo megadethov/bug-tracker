@@ -5,14 +5,14 @@
 
 <html>
 <head>
-    <title>All Assignee Bugs</title>
+    <title>All Reporter Bugs</title>
 </head>
 <body>
 
 <jsp:include page="header.jsp"/>
 
 <div id="container">
-    <h2>All Assignee Bugs</h2>
+    <h2>All Reporter Bugs</h2>
     <table>
         <thead>
         <tr>
