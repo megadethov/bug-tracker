@@ -13,6 +13,7 @@
     <http>
         <csrf disabled="true"/> <!--needs to logout-->
         <intercept-url pattern="/login" access="permitAll"/> <!--open access to all-->
+        <intercept-url pattern="/createAccount" access="permitAll"/> <!--open access to all-->
         <intercept-url pattern="/person/addNew" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/> <!--block all url (/**)-->
         <!--custom form-->
