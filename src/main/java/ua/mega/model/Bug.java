@@ -8,6 +8,8 @@ import javax.persistence.*;
         @NamedQuery(name = "Bug.getAll", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter"),
         @NamedQuery(name = "Bug.getById", query = "select bug from Bug bug left join fetch bug.assignee assignee left join fetch  bug.reporter reporter where bug.id = :id"),
         @NamedQuery(name = "Bug.getAllByAssignee", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where assignee.id = :id"),
+        @NamedQuery(name = "Bug.getAllByAssigneeName", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where assignee.name = :name"),
+        @NamedQuery(name = "Bug.getAllByReporterName", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where assignee.name = :name"),
         @NamedQuery(name = "Bug.getAllByReporter", query = "select bug from Bug bug join fetch bug.assignee assignee join fetch  bug.reporter reporter where reporter.id = :id")
 })
 

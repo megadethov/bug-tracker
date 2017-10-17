@@ -62,9 +62,23 @@ public class BugDaoJpaImpl implements BugDao {
     }
 
     @Override
+    public List<Bug> getAllByAssigneeName(String assigneeName) {
+        TypedQuery<Bug> q = em.createNamedQuery("Bug.getAllByAssigneeName", Bug.class).setParameter("name", assigneeName);
+        LOG.debug("Get all bugs by assignee with name - " + assigneeName);
+        return q.getResultList();
+    }
+
+    @Override
     public List<Bug> getAllByReporter(int reporterId) {
         TypedQuery<Bug> q = em.createNamedQuery("Bug.getAllByReporter", Bug.class).setParameter("id", reporterId);
         LOG.debug("Get all bugs by reporter with id - " + reporterId);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Bug> getAllByReporterName(String reporterName) {
+        TypedQuery<Bug> q = em.createNamedQuery("Bug.getAllByReporterName", Bug.class).setParameter("name", reporterName);
+        LOG.debug("Get all bugs by reporter with name - " + reporterName);
         return q.getResultList();
     }
 }

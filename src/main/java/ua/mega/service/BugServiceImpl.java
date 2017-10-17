@@ -51,7 +51,17 @@ public class BugServiceImpl implements BugService {
     }
 
     @Override
+    public List<Bug> getAllBugsByAssigneeName(String assigneeName) {
+        return bugDao.getAllByAssigneeName(assigneeName);
+    }
+
+    @Override
     public List<Bug> getAllBugsByReporter(int reporterId) {
         return bugDao.getAllByReporter(reporterId);
+    }
+
+    @Override
+    public List<Bug> getAllBugsByReporterName(String reporterName) {
+        return bugDao.getAllByReporterName(reporterName);
     }
 }

@@ -8,6 +8,7 @@
 <a href="<spring:url value="/person/viewAll"/>">View All Persons</a> &nbsp
 <a href="<spring:url value="/person/addNew"/>">Add New Person</a> &nbsp
 <a href="<spring:url value="/bug/viewAll"/>">View All Bugs</a> &nbsp
+<a href="<spring:url value="/bug/viewAllByAssigneeName"/>">View All Bugs By Assignee</a> &nbsp
 <a href="<spring:url value="/bug/addNew"/>">Add New Bug</a> &nbsp
 <a href='<spring:url value="/logout"/>'>Logout</a> &nbsp
 <a href='<spring:url value="/createAccount"/>'>Create Account</a> &nbsp

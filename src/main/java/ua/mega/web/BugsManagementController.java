@@ -2,6 +2,7 @@ package ua.mega.web;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -35,6 +36,17 @@ public class BugsManagementController {
         List<Bug> allBugs = bugService.getAllBugs();
         model.addAttribute("allBugs", allBugs);
         return "view-all-bugs";
+    }
+
+    /**
+     * VIEW ALL BUGS BY ASSIGNEE NAME
+     */
+    @RequestMapping(value = "/viewAllByAssigneeName", method = RequestMethod.GET)
+    public String viewAllBugsByAssigneeName(Model model) {
+        String currentPersonName = SecurityContextHolder.getContext().getAuthentication().getName();
+        List<Bug> allBugs = bugService.getAllBugsByAssigneeName(currentPersonName);
+        model.addAttribute("allBugs", allBugs);
+        return "view-all-assignee-bugs";
     }
 
     /**

@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>All Bugs</title>
+    <title>All Assignee Bugs</title>
 </head>
 <body>
 
@@ -37,12 +37,14 @@
                 <td>${next.bugStatus}</td>
                 <td>${next.assignee.name}</td>
                 <td>${next.reporter.name}</td>
-                <td>
+
+                <%--todo - handle for differents role--%>
+<%--                <td>
                     <a href="<c:url value="/bug/update?id=${next.id}"/>">EDIT</a>
                 </td>
                 <td>
                     <a href="<c:url value="/bug/delete?id=${next.id}"/>">DELETE</a>
-                </td>
+                </td>--%>
             </tr>
         </c:forEach>
         </tbody>

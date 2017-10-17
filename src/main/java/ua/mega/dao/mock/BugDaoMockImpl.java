@@ -69,11 +69,23 @@ public class BugDaoMockImpl implements BugDao {
     }
 
     @Override
+    public List<Bug> getAllByAssigneeName(String assigneeName) {
+        LOG.debug("Get all bugs for assignee with name - " + assigneeName);
+        return null;
+    }
+
+    @Override
     public List<Bug> getAllByReporter(int reporterId) {
         allBugs.add(bug1);
         allBugs.add(bug2);
         allBugs.add(bug3);
         LOG.debug("Get all bugs for reporter with id - " + reporterId);
         return allBugs;
+    }
+
+    @Override
+    public List<Bug> getAllByReporterName(String reporterName) {
+        LOG.debug("Get all bugs for reporter with name - " + reporterName);
+        return null;
     }
 }
